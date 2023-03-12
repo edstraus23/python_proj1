@@ -15,7 +15,7 @@ To install application:
 ### Create sqlite3 Database
 
 1. Run the following command to set up the database:
-```
+``` bash
      python3 create_db1.py
 ```
 
@@ -58,7 +58,7 @@ To run sphinx-quickstart:
 
 1. Change directory to the directory created above.
 
-```
+``` bash
       cd /home/user_name/python_proj1/static/italy
 ```
 
@@ -165,8 +165,8 @@ To create a topic for your form:
 
 1. Run the following command to build the html files:
 
- ```
-      make build
+ ``` bash
+      make html
  ```
 
 2. This creates the html files in the /home/eric/newproj/static/italy/_build/html directory.
