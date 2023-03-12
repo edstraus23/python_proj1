@@ -1,6 +1,6 @@
 # Flask Content Management System (python_proj1)
 
-This project creates a content management system using Flask as its Python-based web framework. It uses sqlite for the database and Sphinx to produce the output.
+This project creates a content management system using Flask as its Python-based web framework. It uses sqlite3 for the database and Sphinx to produce the output.
 
 ## Quick Start Instructions
 
@@ -12,6 +12,12 @@ To install application:
 
 2. Unzip file into a folder.
 
+### Create sqlite3 Database
+
+1. Run the following command to set up the database:
+```
+     python3 create_db1.py
+```
 
 ### Running Application
 
@@ -22,7 +28,7 @@ To run the Flask CMS application:
 2. Run the following command in a command window::
 
 ```
-     python flask_cms.py
+     python3 flask_cms.py
 ```
 
 ### Creating New Form
