@@ -1,0 +1,66 @@
+{% extends "layout.html" %} 
+{% block content %} 
+<h1>Home</h1>
+               
+  <table>
+      <tr>
+          <td>
+            <div class="home">
+                
+                <div id="menu" style="background-color:WhiteSmoke;width:325px;border:2px solid;border-radius:5px;font-size:12px;">
+                    <h2>Actions</h2>
+                    <a href="{{ url_for('new_student') }}">Add New Story</a><br>
+                    <a href="{{ url_for('list') }}">Show List</a><br>
+                    <a href="{{ url_for('list1') }}?category1=form">Display Forms</a><br>
+                    <a href="{{ url_for('list1') }}?category1=books">Display Books</a><br>
+                    <a href="{{ url_for('list1') }}?category1=movies">Display Movies</a><br>
+                    <a href="{{ url_for('list1') }}?category1=tv_shows">Display TV Shows</a><br>
+                </div>
+                <br />
+                
+                <div id="menu" style="background-color:WhiteSmoke;width:325px;border:2px solid;border-radius:5px;font-size:12px;">
+                    <h2>Categories:</h2>
+                    <a href="static/movies/_build/html/index.html">Movies</a><br>
+                    <a href="static/tv_shows/_build/html/index.html">TV Shows</a><br>
+                    <a href="static/quickstart/_build/html/index.html">Quick Start</a><br>
+                    <a href="static/italy/_build/html/index.html">Italy</a><br>
+                    <a href="static/books/_build/html/index.html">Books</a><br>
+                </div>
+            </div> 
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;</td>
+          <td>
+            
+
+            <div id="menu" style="background-color:WhiteSmoke;width:325px;border:2px solid;border-radius:5px;font-size:12px;">
+                <h2>TV Shows</h2>
+               <ol>
+                {% for row in rows %}
+                <li><a href="/edit?id={{row["id"]}}">{{row["title"]}}</a>: {{row["short_desc"]}}</li>
+                {% endfor %}
+               </ol> 
+            </div>
+<br>
+            <div id="menu" style="background-color:WhiteSmoke;width:325px;border:2px solid;border-radius:5px;font-size:12px;">
+                <h2>Movies</h2>
+               <ol>
+                {% for row in brows %}
+                <li><a href="/edit?id={{row["id"]}}">{{row["title"]}}</a>: {{row["short_desc"]}}</li>
+                {% endfor %}
+               </ol> 
+            </div>
+            <br>
+            <div id="menu" style="background-color:WhiteSmoke;width:325px;border:2px solid;border-radius:5px;font-size:12px;">
+                <h2>Books</h2>
+               <ol>
+                {% for row in crows %}
+                <li><a href="/edit?id={{row["id"]}}">{{row["title"]}}</a>: {{row["short_desc"]}}</li>
+                {% endfor %}
+               </ol> 
+            </div>
+            
+          </td>
+        </tr>
+    </table>
+    
+{% endblock %} 

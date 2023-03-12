@@ -1,0 +1,49 @@
+{% extends "layout.html" %} 
+{% block content %}
+<div class="about"> 
+      <!-- result : {{ msg }} -->
+      
+        <p>Search string: {{ d_search1 }} </p>
+
+    <table border=1 class="docutils align-default">
+        <thead>
+        <th><b>ID</b></th>
+        <th><b>Title</b></th>
+        <th><b>Short Desc</b></th>
+        <th><b>Category 1</b></th>
+        <th style="font-size: 8pt"><b>Content</b></th>
+        <th><b>Updated</b></th>
+        <th><b>Actions</b></th>
+        </thead>
+
+
+        {% for row in rows %}
+
+
+        {% if row["content"] != None and (d_search1 in row["title"] or d_search1 in row["content"]): %}
+
+
+
+        <tr>
+            <td>{{row["id"]}}</td>
+            <td>{{row["title"]}}</td>
+            <td>{{row["short_desc"]}}</td>
+            <td> {{ row["category1"]}}</td>
+            <td> {{ row["content"]}}</td>
+            <td>{{row['updated_at']}}</td>
+            {% if row["category1"].find("form") != -1: %}
+            <td>[<a href="/edit1?id={{row["id"]}}">edit_form</a>]  [<a href="/add_entry?id={{row["id"]}}">add_entry</a>] [<a href="/delete?id={{row["id"]}}">delete</a>]</td>
+            {% elif row["category1"].find("story") != -1: %}
+            <td>[<a href="/edit1?id={{row["id"]}}">edit_form</a>]  [<a href="/add_entry?id={{row["id"]}}">add_entry</a>] [<a href="/delete?id={{row["id"]}}">delete</a>]</td>
+            {% else: %}
+            <td>[<a href="/edit?id={{row["id"]}}">edit</a>] [<a href="/delete?id={{row["id"]}}">delete</a>]</td>
+            {% endif %}
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+      <br/>
+      <a href = "/">Go back to home page</a>
+     </div>
+   {% endblock %} 

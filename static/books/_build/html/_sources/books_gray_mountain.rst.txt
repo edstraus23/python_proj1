@@ -1,0 +1,1 @@
+Gray Mountain===============John Grisham story about NYC laywer that loses her job and does pro bona work for a non-profit in Virginia's coal mining region.

@@ -1,0 +1,70 @@
+{% extends "layout.html" %} 
+{% block content %}
+    <style>
+        textarea {
+            color: blue;
+            font-family: Courier New, Courier, monospace;
+        }
+    </style>
+
+   <div class="about"> 
+       <form action="{{ url_for('editrec1') }}" method="POST">
+           <h3>Edit Form</h3>
+           {% for row in rows %}
+
+           <!--    Changes for ID: {{row["id"]}} -->
+           <input type="hidden" name="id" value="{{row["id"]}}" />
+
+           Title:
+           <br>&nbsp;&nbsp;<input type="text" name="title" value="{{row["title"]}}" /><p />
+           Form Name:
+           <br>&nbsp;&nbsp;<input type="text" name="form_name" value="{{row["form_name"]}}" /><p />
+           <!-- Short Description:
+    <br>&nbsp;&nbsp;<input type="text" name="short_desc" width="40" /><p/>
+    -->
+           Category 1:<p />
+                      <select name="category1">
+                          <option value="{{row["category1"]}}" selected>{{row["category1"]}}</option>
+                          {% for cr in crow %}
+                          <option value="{{cr[0]}}">{{cr[1]}}</option>
+                          {% endfor %}
+                      </select>
+           <p></p>
+           Category 2:<p />
+           <select name="category2">
+               <option value="{{row["category2"]}}" selected>{{row["category2"]}}</option>
+               <option value="inactive">Inactive</option>
+               <option value="front">Promote to front</option>
+
+           </select>
+           <p></p>
+
+           <br><br>
+           <fieldset>
+               <legend>Text Field Names:</legend>
+               Text1 Name:<br>&nbsp;&nbsp;<input type="text" name="text1n" value="{{row["text1n"]}}" /><p />
+               Text2 Name:<br>&nbsp;&nbsp;<input type="text" name="text2n" value="{{row["text2n"]}}" /><p />
+               Text3 Name:<br>&nbsp;&nbsp;<input type="text" name="text3n" value="{{row["text3n"]}}" /><p />
+               Text4 Name:<br>&nbsp;&nbsp;<input type="text" name="text4n" value="{{row["text4n"]}}" /><p />
+               Text5 Name:<br>&nbsp;&nbsp;<input type="text" name="text5n" value="{{row["text5n"]}}" /><p />
+           </fieldset>
+           <br><br>
+           <fieldset>
+               <legend>File Fields:</legend>
+               File1 Name:<br>
+               &nbsp;&nbsp;<input type="text" name="file1n" value="{{row["file1n"]}}" />
+               <br><br>
+               File2 Name:<br>
+               &nbsp;&nbsp;<input type="text" name="file2n" value="{{row["file2n"]}}" />
+           </fieldset>
+           {% endfor %}
+           <!--
+    Content<br>
+    <textarea name="content" rows=5 cols=70></textarea>
+    -->
+
+           <br><br>
+           <input type="submit" value="submit" /><br>
+       </form>
+     </div>
+{% endblock %} 

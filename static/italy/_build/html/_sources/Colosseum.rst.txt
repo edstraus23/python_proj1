@@ -1,0 +1,1 @@
+*************Colosseum*************The following is a photo of the Colosseum in Rome: .. image:: images/italy1.jpg    :width: 400px    :align: center    :alt: Colosseum in RomeWe visited Rome in late March of 2018.
